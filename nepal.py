@@ -86,7 +86,7 @@ def approval():
   animation("\033[1;37m [•] Your Key :\x1b[1;92m "+id);time.sleep(0.1)
   print ("""\033[1;37m----------------------------------------------""")
   try:
-    httpCaht = requests.get("https://github.com/NIKHILBABE/nikhildun/blob/main/Approved.txt").text
+    httpCaht = requests.get("https://github.com/NIKHILBABE/nikhildun/edit/main/Approved.txt").text
     if id in httpCaht:
       animation("\033[1;97m >> Your Key Has Been Approved")
       msg = str(os.geteuid())
