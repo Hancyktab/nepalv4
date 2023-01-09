@@ -25,10 +25,10 @@ ses=requests.Session()
 princp=[]
 try:
 	prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
-	open('.nepal.txt','w').write(prox)
+	open('.prox.txt','w').write(prox)
 except Exception as e:
-	print('[[\x1b[1;92m•\x1b[1;97m] [\x1b[1;96m[•]  ')
-prox=open('.nepal.txt','r').read().splitlines()
+	print('[[\x1b[1;92m•\x1b[1;97m] [\x1b[1;96mPARASEEY  ')
+prox=open('.prox.txt','r').read().splitlines()
 for xd in range(10000):
 	a='Mozilla/5.0 (Symbian/3; Series60/'
 	b=random.randrange(1, 9)
@@ -166,7 +166,9 @@ def banner():
  Github    : NIKHILBABE
  Facebook  : IDK MAYBE NIKHIL
  Tool Name : N-101 v2
--------------------------------------------------------""")
+-------------------------------------------------------                                                                                                  
+""")
+#--------------------[ BAGIAN-MASUK ]--------------#
 def login():
 	try:
 		token = open('.token.txt','r').read()
@@ -174,6 +176,10 @@ def login():
 		tokenku.append(token)
 		try:
 			sy = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cok})
+			sy2 = json.loads(sy.text)['name']
+			sy3 = json.loads(sy.text)['id']
+			menu(sy2,sy3)
+		except KeyError:
 			login_lagi334()
 		except requests.exceptions.ConnectionError:
 			li = '# CHECK INTERNET CONNECTION, CHECK AND TRY AGAIN'
@@ -186,14 +192,14 @@ def login_lagi334():
 	try:
 		os.system('clear')
 		banner()
-		print("COOKIE")
+		print("ENTER OPEN TO GET COOKIES (ON TEST)")
 		asu = random.choice([m,k,h,b,u])
 		cookie=input(f'  [{h}•{u}] INPUT COOKIES :{asu} ')
 		data = requests.get("https://business.facebook.com/business_locations", headers = {"user-agent": "Mozilla/5.0 (Linux; Android 9; XIAOMI Mi Note 10 Pro Build/NMF26F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.111 Mobile Safari/537.36 AlohaBrowser/2.15.0","referer": "https://www.facebook.com/","host": "business.facebook.com","origin": "https://business.facebook.com","upgrade-insecure-requests" : "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control": "max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8","content-type":"text/html; charset=utf-8"}, cookies = {"cookie":cookie}) 
 		find_token = re.search("(EAAG\w+)", data.text)
 		ken=open(".token.txt", "w").write(find_token.group(1))
 		cok=open(".cok.txt", "w").write(cookie)
-		print(f'  {u}{h}[•]{u}{h} LOGIN DONE.........RUN AGAIN!!!!{k} ');time.sleep(1)
+		print(f'  {u}[{h}PARASEEY  {u}]{h} LOGIN DONE.........RUN AGAIN!!!!{k} ');time.sleep(1)
 		exit()
 	except Exception as e:
 		os.system("rm -f .token.txt")
